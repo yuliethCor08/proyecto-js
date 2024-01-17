@@ -1,0 +1,16 @@
+{
+    "account": [{
+        "id": [],
+        "name": [],
+        "lastname": [],
+        "email": [],
+        "phone": [],
+        "password": []
+    }  
+    ],
+    "tiquet":[{
+        "id": [],
+        "price": [],
+        "destino": []
+    }]
+}
