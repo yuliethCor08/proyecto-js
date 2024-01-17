@@ -19,14 +19,14 @@ export function controlador(formu, event, entidad, elemformu) {
       formu.reset();
       break;
     // case "CARGARSELECT":
-    // case "Buscar":
-    //   url = `${URL}${entidad}/${datos !== null ? datos.id : ""}`;
-    //   get(url, formu).then((data) => {
-    //     // Utilizar los datos obtenidos
-    //     if (formu !== null) llenarFormulario(formu, data);
-    //     else if (value === "CARGARSELECT") llenarSelect(data, elemformu);
-    //   });
-    //   break;
+    case "Consultar":
+      url = `${URL}${entidad}/${datos !== null ? datos.id : ""}`;
+      get(url, formu).then((data) => {
+        // Utilizar los datos obtenidos
+        if (formu !== null) llenarFormulario(formu, data);
+        else if (value === "CARGARSELECT") llenarSelect(data, elemformu);
+      });
+      break;
     case "Modificar":
       url = URL + entidad + `/${datos.id}`;
       put(url, datos);
@@ -36,6 +36,11 @@ export function controlador(formu, event, entidad, elemformu) {
       url = URL + entidad + `/${datos.id}`;
       delet(url);
       formu.reset;
+      break;
+    case "Reservar":
+      url = URL + entidad;
+      post(url, datos);
+      formu.reset();
       break;
   }
 }

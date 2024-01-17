@@ -1258,3 +1258,46 @@ section {
     border-color: rgb(168, 168, 168);
     outline: 0;
 }
+
+#progress-bar{
+    width: 0;
+    height: 4px;
+    background-color: #024873;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Estilos de carrusel */
+
+.slide-content{
+    margin: 0 40px;
+}
+.tarj{
+    width: 320px;
+    border-radius: 25px;
+    background-color: #ddd;
+}
+.image-content,
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+}
+.card-image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: #ddd;
+    padding: 3px;
+}
+.card-image .card-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #024873;
+}
