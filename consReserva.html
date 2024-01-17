@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="container cont-reserv">
+        <section class="section-padding">
+            <div>
+              <div class="row">
+                <h1 class="section-title">SISTEMA DE RESERVAS - AEREOLINEA</h1>
+                <br><br>
+              </div>
+              <div class="row">
+                <div id="menu2">
+                  <div class="about-item">
+                    <div class="about-text">
+                      <h3><a>Consultar Reservas</a></h3>
+                      <p>Consulte sus reservas con su número de cédula</p>
+                      <input id="docConsulta" class="form-control" name="cedula" placeholder="Ingresa tu número de cédula">
+                      <a href="#" onclick="app.consultarReserva();" class="btn btn-common">Consultar</a>
+                    </div>
+                  </div>
+                </div>
+                <div id="campodoc" style="display: none;">
+                  <form action="javascript:void(0);" method="POST" id="reserva-edit">
+                    <p id="datosvuelo"></p>
+                    <input type="text" id="documento" class="form-control" placeholder="Cedula de Ciudadania">
+                    <input type="submit" value="Reservar" />
+                  </form>
+                </div>
+                <div class="row">
+                  <div>
+                    <table>
+                      <tbody id="vuelos"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <a id="btnback" style="display: none;" href="#" onclick="app.Volver();">Volver</a>
+            </div>
+          </section>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 import { post } from "./../models/post.js";
 // import { get } from "./../models/get.js";
-// import { put } from "./../models/put.js";
-// import { delet } from "./../models/delete.js";
+import { put } from "./../models/put.js";
+import { delet } from "./../models/delete.js";
 
 // import { llenarFormulario, llenarSelect } from "./../views/utils.js";
 
@@ -26,16 +26,16 @@ export function controlador(formu, event, entidad, elemformu) {
     //     if (formu !== null) llenarFormulario(formu, data);
     //     else if (value === "CARGARSELECT") llenarSelect(data, elemformu);
     //   });
+    //   break;
+    case "Modificar":
+      url = URL + entidad + `/${datos.id}`;
+      put(url, datos);
+      //formu.reset
       break;
-    // case "Modificar":
-    //   url = URL + entidad + `/${datos.id}`;
-    //   put(url, datos);
-    //   //formu.reset
-    //   break;
-    // case "Borrar":
-    //   url = URL + entidad + `/${datos.id}`;
-    //   delet(url);
-    //   formu.reset;
-    //   break;
+    case "Borrar":
+      url = URL + entidad + `/${datos.id}`;
+      delet(url);
+      formu.reset;
+      break;
   }
 }
