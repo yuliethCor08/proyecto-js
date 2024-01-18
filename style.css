@@ -203,6 +203,46 @@ h1{
         width: 500px;
         max-width: 85%;
         min-height: 350px;
+        
+    }
+
+    .container span{
+        font-size: 10px;
+    }
+
+    .container p{
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: 0.2px;
+        margin: 20px 0;
+    }
+
+    .container a{
+        font-size: 11px;
+    }
+
+    .container input{
+        font-size: 11px;
+    }
+
+    h1{
+        font-size: 18px;
+    }
+
+    .container button.hidden{
+        font-size: 12px;
+    }
+
+    .toggle-container{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: all 0.6s ease-in-out;
+        border-radius: 100px 0 0 80px;
+        z-index: 1000;
     }
 }
 
