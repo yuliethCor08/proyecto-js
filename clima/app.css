@@ -11,6 +11,97 @@
     --secondary-border-radius: 15px;
 }
 
+.nav {
+    padding: 0 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.nav__title {
+    font-weight: 300;
+}
+.sub2{
+    background-color: #002f4d;
+    color: #fff;
+    width: 100%;
+}
+
+.nav__link {
+    margin-left: auto;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 2em;
+}
+
+.nav__link--menu{
+    /* list-style: none; */
+    display: flex;
+    justify-content: space-around;
+    /* padding: 15px 20px; */
+}
+
+.nav__link > li > a{
+    display: block;
+	padding: 15px 20px;
+	color: white;
+	text-decoration: none;
+}
+
+.nav__items {
+    list-style: none;
+}
+
+.menu-vertical{
+    position: absolute;
+    display: none;
+    list-style: none;
+    /* background-color: #02487348; */
+    width: 200px;
+}
+
+.nav__link--menu li:hover .menu-vertical{
+    display: block;
+}
+
+.menu-vertical li:hover{
+    background-color: #02487348;
+}
+
+.menu-vertical li a{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 15px 15px 0;
+}
+
+.nav__links {
+    color: #fff;
+    text-decoration: none;
+    /* padding: 15px 20px; */
+    display: block;
+}
+
+.nav__menu {
+    margin-left: auto;
+    cursor: pointer;
+    display: none;
+}
+
+.nav__img {
+    display: block;
+    width: 30px;
+}
+
+
+.nav__close {
+    display: var(--show, none);
+}
+
+
 img{
     max-width: 80px;
     max-height: 80px;
@@ -20,9 +111,9 @@ img{
 body{
     width: 100%;
     height: 100vh;
-    background-color: var(--bg-color);
+    /* background-color: var(--bg-color); */
     color: var(--main-text-color);
-    margin: 20px;
+    /* margin: 20px; */
 }
 .container{
    
@@ -30,16 +121,20 @@ body{
     border-radius: var(--main-border-radius);
     -webkit-box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.274);
     box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.274);
-    background-color: var(--bg-color--card);
+    background-color: #024873;
     color: var(--main-text-color);
     width: 85%;
     max-width: 800px;
     min-height: 400px;
+    /* margin: 30px 0; */
 }
 .cards{
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4,1FR);
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-columns: repeat(4,1FR); */
+    align-items: center;
+    justify-content: center;
    
 }
 .cards>div{
