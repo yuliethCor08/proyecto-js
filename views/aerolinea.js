@@ -103,8 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   //......................
     
-    // const urlAerolineas = "http://localhost:4000/Aerolinea";
-    const urlAerolineas = "https://literate-space-barnacle-6q64x6q66gxfxv7p-4000.app.github.dev/Aerolinea";
+    const urlAerolineas = "http://localhost:4000/Aerolinea";
+    // const urlAerolineas = "https://literate-space-barnacle-6q64x6q66gxfxv7p-4000.app.github.dev/Aerolinea";
     fetch(urlAerolineas)
       .then((response) => response.json())
       .then((data) => mostrarAerolineas(data))
