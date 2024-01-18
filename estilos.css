@@ -71,7 +71,7 @@ main{
     font-weight: 300;
 }
 .sub2{
-    background-color: #333231;
+    background-color: #002f4d;
     color: #fff;
     width: 100%;
 }
@@ -492,7 +492,7 @@ main{
 /* Footer */
 
 .footer{
-    background-color: #0D0D0D;
+    background-color: #002f4d;
 }
 
 .footer__title{
@@ -1211,6 +1211,7 @@ section {
     display: inline-block;
     text-decoration: none;
     margin: 0 7px;
+    border: none;
   }
   
   .btn i {
@@ -1261,16 +1262,21 @@ section {
 
 #progress-bar{
     width: 0;
-    height: 4px;
+    height: 6px;
     background-color: #024873;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
+    border-radius: 0 10px 10px 0;
 }
 
 /* Estilos de carrusel */
 
+.slide-container{
+    max-width: 1120px;
+    width: 100%;
+}
 .slide-content{
     margin: 0 40px;
 }
@@ -1286,6 +1292,33 @@ section {
     align-items: center;
     padding: 10px 14px;
 }
+.image-content{
+    row-gap: 5px;
+    position: relative; 
+}
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    /* background-color: #024873; */
+    border-radius: 25px 25px 0 25px;
+}
+.overlay::before,
+.overlay::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #024873;
+}
+.overlay::after{
+    border-radius: 0 0 25px 0;
+    background-color: #fff;
+}
 .card-image{
     position: relative;
     height: 150px;
@@ -1300,4 +1333,19 @@ section {
     object-fit: cover;
     border-radius: 50%;
     border: 4px solid #024873;
+}
+
+.descriptionCard{
+    text-align: center;
+}
+
+.tablero{
+    width: 90%;
+    max-width: 1200px;
+    height: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 40px;
+    /* position: absolute; */
+    background-color: #fff;
 }
