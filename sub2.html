@@ -51,6 +51,56 @@
     </header>
 
     <main>
+        <section class="knowledge">
+            <div class="knowledge__container container">
+                <div></div>
+                <div class="knowledege__texts">
+                    <h2 class="subtitle">Explora todos los destinos</h2>
+                    <div class="form container">
+                        <h1 class="form-title">Encuentra tu destino</h1>
+                        <form action="">
+                          <div class="main-user-info">
+                            <div class="user-input-box">
+                              <label for="busquedaOrigen">Desde</label>
+                              <input type="text"
+                                      id="busquedaOrigen"
+                                      name="fullName"
+                                      placeholder="Bucaramanga"/>
+                            </div>
+                            <div class="user-input-box">
+                              <label for="username">Destino</label>
+                              <input type="text"
+                                      id="destino"
+                                      name="destino"
+                                      placeholder="Elije el destino"/>
+                            </div>
+                            
+                            <div class="user-input-box">
+                              <label for="phoneNumber">Ida y vuelta</label>
+                              <input type="date"
+                                      id="phoneNumber"
+                                      name="phoneNumber"
+                                      placeholder="Elige las fechas"/>
+                            </div>
+                            <div class="user-input-box">
+                              <label for="password">N° viajeros</label>
+                              <input type="password"
+                                      id="password"
+                                      name="password"
+                                      placeholder="Cantidad de pasajeros"/>
+                            </div>
+                            
+                          </div>
+                          <div class="form-submit-btn">
+                            <input type="button" value="Buscar" id="btnBuscar">
+                            <!-- <button type="button" id="btnBuscar">Buscar</button> -->
+                          </div>
+                        </form>
+                      </div>
+                </div>
+                
+            </div>
+        </section>
         <section class="container about">
             <h2 class="subtitle">Destinos más populares</h2>
             <p class="about__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -159,50 +209,8 @@
             </div>
     
         </div>
-        <section class="section-padding">
-            <div class="container">
-              <div class="row">
-                <h1 class="section-title">SISTEMA DE RESERVAS - AEREOLINEA</h1>
-              </div>
-              <div class="row">
-                <div id="menu1" class="col-xs-12 col-md-6 col-lg-4">
-                  <div class="about-item">
-                    <div class="about-text">
-                      <h3><a>Consultar Vuelos</a></h3>
-                      <p>Consulte los vuelos y horarios disponibles</p>
-                      <a class="btn btn-common btn-rm" href="#" onclick="app.mostrarVuelos();">Consultar</a>
-                    </div>
-                  </div>
-                </div>
-                <div id="menu2" class="col-xs-12 col-md-6 col-lg-4">
-                  <!-- <div class="about-item">
-                    <div class="about-text">
-                      <h3><a>Consultar Reservas</a></h3>
-                      <p>Consulte sus reservas por número de cédular</p>
-                      <input id="docConsulta" class="mb-20 form-control" name="cedula" placeholder="Ingresa tu número de cédula">
-                      <a class="btn btn-common btn-rm" href="#" onclick="app.consultarReserva();">Consultar</a>
-                    </div>
-                  </div> -->
-                </div>
-                <div id="campodoc" style="display: none;">
-                  <form action="javascript:void(0);" method="POST" id="reserva-edit">
-                    <p id="datosvuelo"></p>
-                    <input type="text" id="documento" placeholder="Cedula de Ciudadania">
-                    <input type="submit" value="Reservar" />
-                  </form>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <table>
-                      <tbody id="vuelos"></tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <br>
-              <a id="btnback" style="display: none;" href="#" class="btn btn-common btn-rm" onclick="app.Volver();">Volver</a>
-            </div>
-          </section>
+
+        
     </main>
     <footer class="footer">
         <section class="footer__container container">
@@ -253,51 +261,8 @@
 
         </section>
     </footer>
-    <script src="index.js"></script>
-    <script>
-        const datTabla = document.getElementById("dattabla");
-        const btnMostrarJSON = document.getElementById("mostrarjson");
-        btnMostrarJSON.addEventListener("click", e => {
-            mostrarJSON(datTabla);
-            e.stopPropagation();
-        });
-        function mostrar(params) {
-            fetch("/db/db.json")
-            .then(data => data.json())
-            .then(data2 => {
-                console.table(data2);
-                dibujarTabla(elemHTML, data2);
-            })
-        }
-
-        function dibujarTabla(elemHTML, datos) {
-            let tabla = "";
-            for(let valor of datos) {
-                tabla += `
-                    <tr>
-                        <td>${valor.Aerolinea.marca}</td> 
-                        <td>${valor.Aerolinea.origen}</td>
-                        <td class="valedad">${valor.Aerolinea.origen}</td> 
-                        <td class="tdimg">
-                            <img 
-                                src=${valor.Aerolinea.img }
-                                class="imgsexo"
-                            />
-                        </td>   
-                    </tr>`
-            }
-                elemHTML.innerHTML= tabla;
-        }
-        // let main = document.getElementById("tablero");
-        // let button = document.getElementsByClassName("view");
-        // for (let boton of button) {
-            
-        //     boton.addEventListener("click", () => {
-        //         main.innerHTML = '<div class="tablero"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis inventore ipsam sequi fugit fuga id beatae ab maiores vero. Pariatur mollitia minus provident unde porro optio! Ad suscipit doloribus hic.</p></div>'
-        //     } )
-            
-        // }
-
-    </script>
+    <script src="./views/aerolinea.js"></script>
+    <script src="./views/index.js"></script>
+   
 </body>
 </html>

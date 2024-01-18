@@ -1,4 +1,4 @@
-import { controlador } from "./../controllers/controllers.js";
+import { controlador } from "../controllers/controllers.js";
 
 const formu = document.querySelector("form");
 

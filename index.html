@@ -14,13 +14,13 @@
                 <h2 class="nav__title">Reserva tu vuelo aquí</h2>
             </div>
 
-            <ul class="nav__link nav__link--menu">
+            <ul class="nav__link nav__link--menu" id="cont-ul">
                 <li class="nav__items">
                     <a href="index.html" class="nav__links">Inicio</a>
                 </li>
-                <li class="nav__items">
-                    <a href="sub3.html" class="nav__links">Reservas</a>
-                    <ul class="menu-vertical">
+                <li class="nav__items" id="develop">
+                    <a href="#" class="nav__links">Reservas</a>
+                    <ul class="menu-vertical" id="ul-second">
                         <li><a href="sub2.html">Buscar vuelos</a></li>
                         <li><a href="consReserva.html">Consultar reserva</a></li>
                         <li><a href="#">Eliminar reserva</a></li>
@@ -102,56 +102,7 @@
                 </article>
             </div>
         </section>
-        <hr>
-        <section class="knowledge">
-            <div class="knowledge__container container">
-                <div></div>
-                <div class="knowledege__texts">
-                    <h2 class="subtitle">Explora todos los destinos</h2>
-                    <div class="form container">
-                        <h1 class="form-title">Encuentra tu destino</h1>
-                        <form action="#">
-                          <div class="main-user-info">
-                            <div class="user-input-box">
-                              <label for="fullName">Desde</label>
-                              <input type="text"
-                                      id="fullName"
-                                      name="fullName"
-                                      placeholder="Bucaramanga"/>
-                            </div>
-                            <div class="user-input-box">
-                              <label for="username">Destino</label>
-                              <input type="text"
-                                      id="destino"
-                                      name="destino"
-                                      placeholder="Elije el destino"/>
-                            </div>
-                            
-                            <div class="user-input-box">
-                              <label for="phoneNumber">Ida y vuelta</label>
-                              <input type="date"
-                                      id="phoneNumber"
-                                      name="phoneNumber"
-                                      placeholder="Elige las fechas"/>
-                            </div>
-                            <div class="user-input-box">
-                              <label for="password">N° viajeros</label>
-                              <input type="password"
-                                      id="password"
-                                      name="password"
-                                      placeholder="Cantidad de pasajeros"/>
-                            </div>
-                            
-                          </div>
-                          <div class="form-submit-btn">
-                            <input type="submit" value="Buscar">
-                          </div>
-                        </form>
-                      </div>
-                </div>
-                
-            </div>
-        </section>
+        
         
     </main>
 
@@ -205,6 +156,6 @@
         </section>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="./views/index.js"></script>
 </body>
 </html>

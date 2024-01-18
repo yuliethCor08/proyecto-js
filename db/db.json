@@ -1,108 +1,133 @@
 {
-    "usuarios": [{
-        "id": "1",
-        "name": "Carlos",
-        "lastname": "Diaz",
-        "email": "carlosd@hoer.com",
-        "namUsuario": "Carlosd",
-        "genero": "m",
-        "password": "1234"
+  "usuarios": [
+    {
+      "id": "1",
+      "name": "Carlos",
+      "email": "carlosd@hoer.com",
+      "password": "1234"
     },
     {
-        "id": "2",
-        "name": "Andres",
-        "lastname": "Diaz",
-        "email": "andres@hoer.com",
-        "namUsuario": "Carlosd",
-        "genero": "m",
-        "password": "2345"
+      "id": "2",
+      "name": "Carlos",
+      "email": "carlosd@hoer.com",
+      "password": "1234"
     },
     {
-        "id": "3",
-        "name": "Maria",
-        "lastname": "Diaz",
-        "email": "carlosd@hoer.com",
-        "namUsuario": "Carlosd",
-        "genero": "f",
-        "password": "3456"
+      "id": "9a38",
+      "name": "daya",
+      "email": "ylauratoro02@gmail.com",
+      "password": "2345"
     },
     {
-        "id": "4",
-        "name": "Andrea",
-        "lastname": "Diaz",
-        "email": "carlosd@hoer.com",
-        "namUsuario": "Carlosd",
-        "genero": "f",
-        "password": "4567"
+      "id": "64ec",
+      "name": "yuli",
+      "email": "yuliethcorrea08@gmail.com",
+      "password": "1234"
     },
     {
-        "id": "5",
-        "name": "Carlos",
-        "lastname": "Diaz",
-        "email": "carlosd@hoer.com",
-        "namUsuario": "Carlosd",
-        "genero": "m",
-        "password": "5678"
+      "id": "3876",
+      "name": "pao",
+      "email": "paol@hotmail.com",
+      "password": "1234"
     }
-    ],
-    "Aerolinea":[{
-        "id": 1,
-        "marca": "Vuelo 1",
-        "origen": "A",
-        "destino": "V",
-        "hora": "2018-05-15T12:00:00",
-        "costobase": 500,
-        "costoneto": 0,
-        "reservas": [],
-        "img": "../bogota.jpg"
-      },
-      {
-        "id": 2,
-        "marca": "Vuelo 2",
-        "origen": "B",
-        "destino": "W",
-        "hora": "2018-05-28T07:30:00",
-        "costobase": 450,
-        "costoneto": 0,
-        "reservas": [],
-        "img": "../bogota.jpg"
-      },
-      {
-        "id": 3,
-        "marca": "Vuelo 3",
-        "origen": "C",
-        "destino": "X",
-        "hora": "2018-05-21T18:00:00",
-        "costobase": 600,
-        "costoneto": 0,
-        "reservas": [],
-        "img": "../bogota.jpg"
-      },
-      {
-        "id": 4,
-        "marca": "Vuelo 4",
-        "origen": "D",
-        "destino": "Y",
-        "hora": "2018-05-28T06:50:00",
-        "costobase": 550,
-        "costoneto": 0,
-        "reservas": [1078],
-        "img": "../bogota.jpg"
-      },
-      {
-        "id": 5,
-        "marca": "Vuelo 5",
-        "origen": "E",
-        "destino": "Z",
-        "hora": "2018-06-01T19:30:00",
-        "costobase": 200,
-        "costoneto": 0,
-        "reservas": [],
-        "img": "../bogota.jpg"
-      }],
-    "pasajeros":[{
-        "id": [],
-        "genero":[],
-        "vuelo":[]
-    }]
+  ],
+  "Aerolinea": [
+    {
+      "id": 1,
+      "marca": "Avianca",
+      "origen": "Bucaramanga",
+      "destino": "Cartagena",
+      "hora": "2018-05-15T12:00:00",
+      "costobase": 500,
+      "costoneto": 0,
+      "reservas": [],
+      "img": "../bogota.jpg"
+    },
+    {
+      "id": 2,
+      "marca": "LATAM",
+      "origen": "Bogota",
+      "destino": "Medellin",
+      "hora": "2018-05-28T07:30:00",
+      "costobase": 450,
+      "costoneto": 0,
+      "reservas": [],
+      "img": "../bogota.jpg"
+    },
+    {
+      "id": 3,
+      "marca": "Wingo",
+      "origen": "Medellin",
+      "destino": "Bogota",
+      "hora": "2018-05-21T18:00:00",
+      "costobase": 600,
+      "costoneto": 0,
+      "reservas": [],
+      "img": "../bogota.jpg"
+    },
+    {
+      "id": 4,
+      "marca": "Avianca",
+      "origen": "Bucaramanga",
+      "destino": "medellin",
+      "hora": "2018-05-28T06:50:00",
+      "costobase": 550,
+      "costoneto": 0,
+      "reservas": [
+        1078
+      ],
+      "img": "../bogota.jpg"
+    },
+    {
+      "id": 5,
+      "marca": "LATAM",
+      "origen": "Amazonas",
+      "destino": "Cali",
+      "hora": "2018-06-01T19:30:00",
+      "costobase": 200,
+      "costoneto": 0,
+      "reservas": [],
+      "img": "../bogota.jpg"
+    },
+    {
+      "id": 5,
+      "marca": "Wingo",
+      "origen": "Barranquilla",
+      "destino": "Cali",
+      "hora": "2018-06-01T19:30:00",
+      "costobase": 200,
+      "costoneto": 0,
+      "reservas": [],
+      "img": "../bogota.jpg"
+    },
+    {
+      "id": 5,
+      "marca": "LATAM",
+      "origen": "Cucuta",
+      "destino": "Bucaramanga",
+      "hora": "2018-06-01T19:30:00",
+      "costobase": 200,
+      "costoneto": 0,
+      "reservas": [],
+      "img": "../bogota.jpg"
+    },
+    {
+      "id": 5,
+      "marca": "America Airlines",
+      "origen": "Choco",
+      "destino": "Barranquilla",
+      "hora": "2018-06-01T19:30:00",
+      "costobase": 200,
+      "costoneto": 0,
+      "reservas": [],
+      "img": "../bogota.jpg"
+    }
+  ],
+  "pasajeros": [
+    {
+      "id": [],
+      "genero": [],
+      "vuelo": []
+    }
+  ]
 }
