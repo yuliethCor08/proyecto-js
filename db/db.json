@@ -29,11 +29,17 @@
       "name": "pao",
       "email": "paol@hotmail.com",
       "password": "1234"
+    },
+    {
+      "id": "dc5e",
+      "name": "Laura correa toro",
+      "email": "ylauratoro02@gmail.com",
+      "password": "12345"
     }
   ],
   "Aerolinea": [
     {
-      "id": 1,
+      "id": "1",
       "marca": "Avianca",
       "origen": "Bucaramanga",
       "destino": "Cartagena",
@@ -44,7 +50,7 @@
       "img": "../bogota.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "marca": "LATAM",
       "origen": "Bogota",
       "destino": "Medellin",
@@ -55,7 +61,7 @@
       "img": "../bogota.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "marca": "Wingo",
       "origen": "Medellin",
       "destino": "Bogota",
@@ -66,7 +72,7 @@
       "img": "../bogota.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "marca": "Avianca",
       "origen": "Bucaramanga",
       "destino": "medellin",
@@ -79,7 +85,7 @@
       "img": "../bogota.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "marca": "LATAM",
       "origen": "Amazonas",
       "destino": "Cali",
@@ -90,7 +96,7 @@
       "img": "../bogota.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "marca": "Wingo",
       "origen": "Barranquilla",
       "destino": "Cali",
@@ -101,7 +107,7 @@
       "img": "../bogota.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "marca": "LATAM",
       "origen": "Cucuta",
       "destino": "Bucaramanga",
@@ -112,7 +118,7 @@
       "img": "../bogota.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "marca": "America Airlines",
       "origen": "Choco",
       "destino": "Barranquilla",
