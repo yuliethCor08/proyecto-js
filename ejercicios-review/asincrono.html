@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Volver de sincrono a asincrono
+        const doTaskAsync = async (iterations) => {
+        const numbers = [];
+
+        for (let i = 0; i < iterations; i++) {
+            const number = 1 + Math.floor(Math.random() * 6);
+            numbers.push(number);
+
+            if (number === 6) {
+            return {
+                error: true,
+                iter: i + 1,
+                message: "Se ha sacado un 6"
+            };
+            }
+
+            // Agregar un pequeño retraso simulado (puedes eliminar esto si no es necesario)
+            await new Promise(resolve => setTimeout(resolve, 100));
+        }
+
+        return {
+            error: false,
+            value: numbers
+        };
+        };
+
+        const ejecutarTarea = async () => {
+        const resultado = await doTaskAsync(10);
+        console.log(resultado);
+        };
+
+        ejecutarTarea();
+
+    </script>
+</body>
+</html>

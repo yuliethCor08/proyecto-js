@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numAtletas = parseInt(prompt("Ingrese el número de atletas finalistas en salto triple:"));
+      
+        let campeonaNombre = "";
+        let campeonaMarca = 0;
+        let recordMetros = 15.50;
+        let rompioRecord = false;
+      
+        // nombres y marcas de cada atleta
+        for (let i = 1; i <= numAtletas; i++) {
+          let nombre = prompt("Ingrese el nombre del atleta #" + i + ":");
+          let marca = parseFloat(prompt("Ingrese la marca de salto en metros para " + nombre + ":"));
+      
+          // Verificar marca válida
+          if (!isNaN(marca) && marca >= 0) {
+            // Verificar si atleta campeona
+            if (marca > campeonaMarca) {
+              campeonaNombre = nombre;
+              campeonaMarca = marca;
+            }
+      
+            if (marca > recordMetros) {
+              rompioRecord = true;
+            }
+          } else {
+            alert("Por favor, ingrese una marca válida para " + nombre + ".");
+            i--; // Restar i para repetir la iteración actual
+          }
+        }
+      
+        alert("La atleta campeona es: " + campeonaNombre + "\nMarca de salto: " + campeonaMarca.toFixed(2) + " metros");
+      
+        if (rompioRecord) {
+          alert("¡Felicidades! Ha roto el récord y recibe un premio de 500 millones.");
+        } else {
+          alert("No se rompió el récord.");
+        }
+      </script>
+</body>
+</html>

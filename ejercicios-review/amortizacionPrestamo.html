@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Amortización prestamo</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .tabla2 {
+                width: 60vw;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Amortización Prestamo</h1>
+        </header>
+
+        <main id="principal">
+            <table class="tabla1" border="1"></table>
+
+            <br/><br/><br/>
+
+            <table class="tabla2">
+                <thead>
+                    <tr align="left">
+                        <th>Mes</th>
+                        <th>Valor</th>
+                        <th>Valor total</th>
+                        <th>Capital</th>
+                        <th>Interés</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+
+                <tbody class="cuerpo_tabla"></tbody>
+
+                <tfoot class="pie_tabla"></tfoot>
+            </table>
+        </main>
+
+        <script>
+            // Definiendo las variables y constantes principales
+            const principal = document.getElementById("principal");
+            const tabla1 = principal.querySelector(".tabla1");
+            const tabla2 = principal.querySelector(".tabla2");
+
+
+            // Definiendo las funciones de validación
+            function validarMontoCredito(credito) {
+                while (Number(credito) <= 0 || isNaN(Number(credito))) {
+                    alert("Error. El monto ingresado es inválido. Inténtelo de nuevo");
+                    credito = Number(prompt("Ingrese el valor del monto del crédito: "));
+                }
+
+                return Number(credito);
+            }
+
+            function validarInteres(interes) {
+                while (Number(interes) <= 0 || Number(interes) > 100 || isNaN(Number(interes))) {
+                    alert("Error. El valor del interés es incorrecto. Verifique e intente nuevamente");
+                    interes = Number(prompt("Ingrese el valor del interés anual: "));
+                }
+
+                return Number(interes);
+            }
+
+            function validarNumero(num) {
+                while (Number(num) <= 0 || Number(num) > 10000 || isNaN(Number(num))) {
+                    num = Number(prompt("Ingrese el número de pagos: "));
+                }
+
+                return Number(num);
+            }
+
+
+            // Definiendo las funciones necesarias
+            function pedirDatosUsuario() {
+                let montoCredito = validarMontoCredito(prompt("Ingrese el valor del monto del crédito: "));
+                let interes = validarInteres(prompt("Ingrese el valor del interés anual: "));
+                let numeroPagos = validarNumero("Ingrese el número de pagos: ");
+                
+                return [["montoDelCredito", montoCredito], ["interes", interes], ["numeroPagos", numeroPagos]];
+            }
+
+            function calcValorMensual(montoCredito, interes, numPagos) {
+                let capital = montoCredito / numPagos;
+                let intereses = (capital * interes) / 100;
+                
+                return [capital + intereses, capital, intereses];
+            }
+
+            function escribirTablas(dictInfoUser, valorMensual, valorTotal, capital, intereses) {
+                const cuerpoTabla2 = tabla2.querySelector(".cuerpo_tabla");
+                const pieTabla2 = tabla2.querySelector(".pie_tabla");
+                let valorRestaDinamico = dictInfoUser.get("montoDelCredito");
+                let valorTotalRestaDinamico = valorTotal;
+
+                // Escribiendo la información de la tabla n°1
+                tabla1.innerHTML = `
+                    <tr align="right" style="background-color: #ebf1de">
+                        <th>Monto del crédito: </th>
+                        <td>$${dictInfoUser.get("montoDelCredito").toFixed(2)}</td>
+                    </tr>
+
+                    <tr align="right">
+                        <th>Tasa de interés (anual): </th>
+                        <td>${dictInfoUser.get("interes").toFixed(0)}%</td>
+                    </tr>
+
+                    <tr align="right" style="background-color: #ebf1de">
+                        <th>Número de pagos (mensuales): </th>
+                        <td>${dictInfoUser.get("numeroPagos").toFixed(0)}
+                    </tr>
+
+                    <tr align="right">
+                        <th>Valor total: </th>
+                        <td>$${valorTotal.toFixed(2)}</td>
+                    </tr>
+
+                    <tr align="right">
+                        <th>Valor mensual: </th>
+                        <td>$${valorMensual.toFixed(2)}</td>
+                    </tr>
+                `;
+
+
+                // Escribiendo la información de la tabla n°2
+                for (i = 0; i < dictInfoUser.get("numeroPagos"); i++) {
+                    cuerpoTabla2.innerHTML += `
+                        <tr align="right">
+                            <td>${i+1}</td>
+                            <td>$${valorRestaDinamico.toFixed(2)}</td>
+                            <td>$${valorTotalRestaDinamico.toFixed(2)}</td>
+                            <td>${capital.toFixed(2)}</td>
+                            <td>${intereses.toFixed(2)}</td>
+                            <td>${valorMensual.toFixed(2)}</td>
+                        </tr>
+                    `;
+
+                    valorRestaDinamico -= capital;
+                    valorTotalRestaDinamico -= valorMensual;
+                }
+
+                pieTabla2.innerHTML = `
+                    <tr align="right">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>$${dictInfoUser.get("montoDelCredito").toFixed(2)}</td>
+                        <td>$${intereses * dictInfoUser.get("numeroPagos").toFixed(2)}</td>
+                        <td>$${valorTotal.toFixed(2)}</td>
+                    </tr>
+                `;
+            }
+
+            function iniciarPrograma() {
+                let entradaUsuario = pedirDatosUsuario();
+                let dictInfoUser = new Map();
+
+                // Convertir los datos ingresados por el usuario a un diccionario
+                for (i = 0; i < entradaUsuario.length; i++) {
+                    dictInfoUser.set(entradaUsuario[i][0], entradaUsuario[i][1]);
+                }
+
+                let calculoValorMensual = calcValorMensual(dictInfoUser.get("montoDelCredito"), dictInfoUser.get("interes"), dictInfoUser.get("numeroPagos"));
+                let valorTotal = calculoValorMensual[0] * dictInfoUser.get("numeroPagos");
+
+                escribirTablas(dictInfoUser, calculoValorMensual[0], valorTotal, calculoValorMensual[1], calculoValorMensual[2]);
+            }
+
+            iniciarPrograma();
+
+        </script>
+    </body>
+
+</html>

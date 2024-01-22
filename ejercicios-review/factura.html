@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nombreArticulo = prompt("Ingrese el nombre del artículo:");
+        let precioUnitario = parseFloat(prompt("Ingrese el precio unitario del artículo:"));
+        let cantidad = parseInt(prompt("Ingrese la cantidad que lleva el cliente:"));
+
+        // Verificar si el usuario ha ingresado valores válidos
+        if (!isNaN(precioUnitario) && !isNaN(cantidad) && precioUnitario > 0 && cantidad > 0) {
+            // Calcular el total a pagar
+            let totalPagar = precioUnitario * cantidad;
+
+            // Mostrar la factura al usuario
+            alert("Factura:\n\n" +
+                "Artículo: " + nombreArticulo + "\n" +
+                "Precio Unitario: $" + precioUnitario.toFixed(2) + "\n" +
+                "Cantidad: " + cantidad + "\n" +
+                "Total a Pagar: $" + totalPagar.toFixed(2));
+        } else {
+            alert("Por favor, ingrese valores válidos para el precio unitario y la cantidad.");
+        }
+    </script>
+</body>
+</html>

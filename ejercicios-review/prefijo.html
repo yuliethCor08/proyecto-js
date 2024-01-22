@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function contarPalabrasConPrefijo(words, pref) {
+            // Usar reduce para contar las palabras con el prefijo
+            const contador = words.reduce((acc, palabra) => {
+                // Verificar si la palabra tiene el prefijo
+                if (palabra.startsWith(pref)) {
+                return acc + 1; // Incrementar el contador si la palabra tiene el prefijo
+                } else {
+                return acc; // Mantener el contador sin cambios si la palabra no tiene el prefijo
+                }
+            }, 0);
+
+            return contador;
+        }
+
+        // Ejemplos de uso
+        const ejemplo1 = contarPalabrasConPrefijo(["pay", "attention", "practice", "attend"], "at");
+        console.log(ejemplo1); // Output: 2
+
+        const ejemplo2 = contarPalabrasConPrefijo(["leetcode", "win", "loops", "success"], "code");
+        console.log(ejemplo2); // Output: 0
+
+    </script>
+</body>
+</html>

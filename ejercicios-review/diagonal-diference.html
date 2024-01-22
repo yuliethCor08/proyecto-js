@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function diagonalDifference(matrix) {
+            const n = matrix.length;
+            
+            // Inicializar las sumas de las diagonales
+            let primaryDiagonalSum = 0;
+            let secondaryDiagonalSum = 0;
+            
+            // Calcular la suma de la diagonal principal y la diagonal secundaria
+            for (let i = 0; i < n; i++) {
+                primaryDiagonalSum += matrix[i][i];
+                secondaryDiagonalSum += matrix[i][n - 1 - i];
+            }
+            
+            // Calcular la diferencia absoluta entre las sumas
+            const absoluteDifference = Math.abs(primaryDiagonalSum - secondaryDiagonalSum);
+            
+            return absoluteDifference;
+        }
+
+        // Ejemplo de uso
+        const n = parseInt(prompt("Ingrese la dimensión de la matriz:"));
+        const matrix = [];
+
+        // Leer la matriz desde el usuario
+        for (let i = 0; i < n; i++) {
+            const row = prompt(`Ingrese la fila ${i + 1} (separada por espacios):`).split(' ').map(Number);
+            matrix.push(row);
+        }
+
+        // Calcular y mostrar la diferencia absoluta entre las sumas de las diagonales
+        const result = diagonalDifference(matrix);
+        alert(`La diferencia absoluta entre las sumas de las diagonales es: ${result}`);
+
+    </script>
+</body>
+</html>

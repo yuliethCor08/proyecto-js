@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Temperatura</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    #container {
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    input {
+      width: 80px;
+      padding: 5px;
+      margin: 5px;
+    }
+
+    #result {
+      background-color: #71ff74;
+    }
+
+    #celsius {
+      background-color: #feff64;
+    }
+
+    #fahrenheit {
+      background-color: #9dd2fd;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <label for="celsius">Celsius:</label>
+  <input type="text" id="celsius">
+
+  <label for="fahrenheit">Fahrenheit:</label>
+  <input type="text" id="fahrenheit">
+
+  <button id="calcular">Calcular</button>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const celsiusInput = document.getElementById("celsius");
+    const fahrenheitInput = document.getElementById("fahrenheit");
+    const resultBox = document.getElementById("result");
+    const calcularButton = document.getElementById("calcular");
+
+    celsiusInput.addEventListener("input", function() {
+      fahrenheitInput.value = convertCelsiusToFahrenheit(parseFloat(this.value));
+    });
+
+    fahrenheitInput.addEventListener("input", function() {
+      celsiusInput.value = convertFahrenheitToCelsius(parseFloat(this.value));
+    });
+
+    calcularButton.addEventListener("click", function() {
+      resultBox.style.backgroundColor = "#71ff74";
+    });
+
+    function convertCelsiusToFahrenheit(celsius) {
+      return (celsius * 9/5) + 32;
+    }
+
+    function convertFahrenheitToCelsius(fahrenheit) {
+      return (fahrenheit - 32) * 5/9;
+    }
+  });
+</script>
+
+</body>
+</html>

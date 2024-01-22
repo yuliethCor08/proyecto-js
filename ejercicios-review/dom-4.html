@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="nombre">Nombre del cliente:</label>
+    <br>
+    <input type="text" name="nombre" id="nombre">
+    <br><br>
+
+    <label for="material">Material de la caja:</label>
+    <select name="material" id="material">
+        <option value="carton">Cartón</option>
+        <option value="plastico">Plástico</option>
+    </select>
+    <br><br>
+
+    <label for="dimensiones">Seleccione las dimensiones:</label>
+    <br>
+    <input type="radio" name="dimensiones" id="dimensiones" value="Diminutas">
+    <br>
+    <input type="radio" name="dimensiones" id="dimensiones" value="Medianas">
+    <br>
+    <input type="radio" name="dimensiones" id="dimensiones" value="Grandes">
+    <br><br>
+    <label for="comentarios">Comentrios</label>
+    <br>
+    <textarea name="comentarios" id="comentarios" cols="30" rows="10"></textarea>
+    <br><br>
+    <button onclick="enviar()">enviar</button>
+    <div id="output"></div>
+
+    <script>
+        function enviar() {
+            const nombre = document.getElementById('nombre').value;
+            const material = document.getElementById('material').value;
+            const dimensiones = Array.from(document.querySelectorAll('[name=dimensiones]:checked')).map(input => input.value);
+            const comentarios = document.getElementById('comentarios').value;
+
+            //
+
+            const output = document.getElementById('output');
+            output.innerHTML = `<p>${nombre} ha pedido una caja de ${material} con dimensiones ${dimensiones.join(', ')}. ${comentarios}</p>`;
+            output.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

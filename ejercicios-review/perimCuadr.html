@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let opcion = prompt("Ingrese 'a' para calcular el perímetro de un cuadrado o 'b' para calcular el área de un rectángulo:");
+      
+        if (opcion.toLowerCase() === 'a') {
+          let ladoCuadrado = parseFloat(prompt("Ingrese el valor del lado del cuadrado:"));
+      
+          // Verificar si el usuario ha ingresado un valor válido
+          if (!isNaN(ladoCuadrado) && ladoCuadrado > 0) {
+            let perimetroCuadrado = 4 * ladoCuadrado;
+            alert("El perímetro del cuadrado es: " + perimetroCuadrado);
+          } else {
+            alert("Por favor, ingrese un valor válido para el lado del cuadrado.");
+          }
+        } else if (opcion.toLowerCase() === 'b') {
+          let baseRectangulo = parseFloat(prompt("Ingrese el valor de la base del rectángulo:"));
+          let alturaRectangulo = parseFloat(prompt("Ingrese el valor de la altura del rectángulo:"));
+      
+          // Verificar si se ha ingresado valores válidos
+          if (!isNaN(baseRectangulo) && !isNaN(alturaRectangulo) && baseRectangulo > 0 && alturaRectangulo > 0) {
+            let areaRectangulo = baseRectangulo * alturaRectangulo;
+            alert("El área del rectángulo es: " + areaRectangulo);
+          } else {
+            alert("Por favor, ingrese valores válidos para la base y la altura del rectángulo.");
+          }
+        } else {
+          alert("Opción no válida. Por favor, ingrese 'a' o 'b'.");
+        }
+      </script>
+</body>
+</html>

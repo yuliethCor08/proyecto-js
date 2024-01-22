@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <style>
+    .boton {
+      display: block;
+      width: 100px;
+      cursor: pointer;
+      margin: 10px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="boton1" class="boton" onclick="pulsar(event)">Pulsar aquí</div>
+  <div id="boton2" class="boton" onclick="pulsar(event)">Pulsar aquí</div>
+
+  <script>
+    function pulsar(event) {
+      alert("Se pulsó el botón con id: " + event.target.id);
+    }
+  </script>
+</body>
+</html>

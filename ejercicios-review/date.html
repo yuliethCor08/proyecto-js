@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Callbacks y Asincronía</title>
+  <style>
+    .output-box {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Instrucciones -->
+<div class="output-box" id="outputA">A. Debería aparecer cuando se carga la imagen.</div>
+<div class="output-box" id="outputB">B. Debería aparecer inmediatamente después de A.</div>
+<div class="output-box" id="outputC">C. Debería aparecer 5 segundos después de A.</div>
+<div class="output-box" id="outputD">D. Debería aparecer aleatoriamente entre 2 y 5 segundos después de cargar la ventana.</div>
+<div class="output-box" id="outputE">E. Debería aparecer 2 segundos después de D.</div>
+<div class="output-box" id="outputF">F. Debería aparecer 2 segundos después de B.</div>
+<div class="output-box" id="outputG">G. Debería aparecer 2 segundos después de E.</div>
+<div class="output-box" id="outputH">H. Debería aparecer 2 segundos después de G.</div>
+
+<script>
+  // Función para simular la carga de la imagen (callback A)
+  function cargarImagen(callback) {
+    setTimeout(function() {
+      document.getElementById('outputA').textContent += ' Cargó la imagen.';
+      callback();
+    }, 0);
+  }
+
+  // Función para el callback B
+  function callbackB() {
+    document.getElementById('outputB').textContent += ' Apareció inmediatamente después de A.';
+  }
+
+  // Función para el callback C
+  function callbackC() {
+    document.getElementById('outputC').textContent += ' Apareció 5 segundos después de A.';
+  }
+
+  // Función para el callback D
+  function callbackD() {
+    var tiempoAleatorio = Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000;
+    setTimeout(function() {
+      document.getElementById('outputD').textContent += ' Apareció aleatoriamente entre 2 y 5 segundos después de cargar la ventana.';
+    }, tiempoAleatorio);
+  }
+
+  // Función para el callback E
+  function callbackE() {
+    setTimeout(function() {
+      document.getElementById('outputE').textContent += ' Apareció 2 segundos después de D.';
+    }, 2000);
+  }
+
+  // Función para el callback F
+  function callbackF() {
+    setTimeout(function() {
+      document.getElementById('outputF').textContent += ' Apareció 2 segundos después de B.';
+    }, 2000);
+  }
+
+  // Función para el callback G
+  function callbackG() {
+    setTimeout(function() {
+      document.getElementById('outputG').textContent += ' Apareció 2 segundos después de E.';
+    }, 2000);
+  }
+
+  // Función para el callback H
+  function callbackH() {
+    setTimeout(function() {
+      document.getElementById('outputH').textContent += ' Apareció 2 segundos después de G.';
+    }, 2000);
+  }
+
+  // Iniciar la secuencia
+  cargarImagen(function() {
+    callbackB();
+    callbackC();
+    callbackD();
+    callbackE();
+    callbackF();
+    callbackG();
+    callbackH();
+  });
+</script>
+
+</body>
+</html>

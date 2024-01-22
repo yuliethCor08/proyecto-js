@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+  <div>
+    <label>Coordenada X</label>
+    <input id="cX" readonly>
+  </div>
+  <div>
+    <label>Coordenada Y</label>
+    <input id="cY" readonly>
+  </div>
+
+  <script>
+    document.addEventListener("mousemove", function(event) {
+      document.getElementById("cX").value = event.screenX;
+      document.getElementById("cY").value = event.screenY;
+    });
+  </script>
+</body>
+</html>

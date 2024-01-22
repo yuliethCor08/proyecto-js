@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    #flashcard-board {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .flashcard {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin: 10px;
+      padding: 20px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .flashcard .delete-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: red;
+      cursor: pointer;
+    }
+
+    .flashcard:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .flashcard textarea {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .flashcard.answer-visible {
+      background-color: #e0f7fa;
+    }
+
+    #create-flashcard-box {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="flashcard-board"></div>
+
+<button onclick="showCreateFlashcardBox()">Agregar</button>
+<button onclick="deleteAllFlashcards()">Eliminar</button>
+
+<div id="create-flashcard-box">
+  <textarea id="question" placeholder="Pregunta"></textarea>
+  <textarea id="answer" placeholder="Respuesta"></textarea>
+  <button onclick="saveFlashcard()">Guardar</button>
+  <button onclick="closeCreateFlashcardBox()">Cerrar</button>
+</div>
+
+<script>
+  function showCreateFlashcardBox() {
+    document.getElementById('create-flashcard-box').style.display = 'block';
+  }
+
+  function closeCreateFlashcardBox() {
+    document.getElementById('create-flashcard-box').style.display = 'none';
+  }
+
+  function saveFlashcard() {
+    const question = document.getElementById('question').value;
+    const answer = document.getElementById('answer').value;
+
+    if (question && answer) {
+      const flashcard = createFlashcard(question, answer);
+      document.getElementById('flashcard-board').appendChild(flashcard);
+      closeCreateFlashcardBox();
+    }
+  }
+
+  function createFlashcard(question, answer) {
+    const flashcard = document.createElement('div');
+    flashcard.className = 'flashcard';
+    flashcard.innerHTML = `<textarea readonly>${question}</textarea><textarea readonly>${answer}</textarea><div class="delete-icon" onclick="deleteFlashcard(this)">❌</div>`;
+    
+    flashcard.addEventListener('click', function () {
+      this.classList.toggle('answer-visible');
+    });
+
+    return flashcard;
+  }
+
+  function deleteFlashcard(deleteIcon) {
+    const flashcard = deleteIcon.parentElement;
+    flashcard.remove();
+  }
+
+  function deleteAllFlashcards() {
+    document.getElementById('flashcard-board').innerHTML = '';
+  }
+</script>
+
+</body>
+</html>

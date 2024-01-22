@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información de Enlaces</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 20px;
+      resize: none;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<form id="enlacesForm">
+  <label for="enlacesOutput">Información de Enlaces:</label>
+  <textarea id="enlacesOutput" readonly></textarea>
+</form>
+
+<script type="text/javascript">
+  window.onload = function() {
+    // Obtener todos los enlaces de la página
+    const enlaces = document.getElementsByTagName('a');
+
+    // Número de enlaces de la página
+    const numEnlaces = enlaces.length;
+
+    // Dirección del penúltimo enlace
+    const penultimoEnlace = enlaces[numEnlaces - 2].href;
+
+    // Número de enlaces que apuntan a http://prueba
+    const numEnlacesPrueba = Array.from(enlaces).filter(enlace => enlace.href.includes('http://prueba')).length;
+
+    // Número de enlaces del tercer párrafo
+    const tercerParrafoEnlaces = document.getElementsByTagName('p')[2].getElementsByTagName('a').length;
+
+    // Mostrar la información en el área de texto
+    const enlacesOutput = document.getElementById('enlacesOutput');
+    enlacesOutput.value = `Número de enlaces: ${numEnlaces}\n`;
+    enlacesOutput.value += `Dirección del penúltimo enlace: ${penultimoEnlace}\n`;
+    enlacesOutput.value += `Número de enlaces que apuntan a http://prueba: ${numEnlacesPrueba}\n`;
+    enlacesOutput.value += `Número de enlaces del tercer párrafo: ${tercerParrafoEnlaces}`;
+  }
+</script>
+
+</body>
+</html>

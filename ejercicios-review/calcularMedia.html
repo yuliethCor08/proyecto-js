@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="resultado"></ul>
+    <script>
+        function calcularMedia() {
+            let suma = 0;
+            let contador = 0;
+            
+            let resultadoElement = document.getElementById("resultado");
+
+            // resultadoElement.innerHTML = "";
+
+            // Pedir números hasta que introduzca uno negativo
+            while (true) {
+            let numero = parseFloat(prompt("Introduce un número positivo (introduce un número negativo para finalizar):"));
+
+            if (numero < 0) {
+                break;
+            }
+
+            // Verificar si número es válido
+            if (!isNaN(numero) && numero >= 0) {
+                suma += numero;
+                contador++;
+
+                // Mostrar el número en la lista
+                resultadoElement.innerHTML += "<li>" + numero + "</li>";
+            } else {
+                alert("Por favor, introduce un número positivo válido.");
+            }
+            }
+
+            // Calcular la media
+            let media = contador > 0 ? suma / contador : 0;
+
+            // Mostrar media con dos decimales
+            resultadoElement.innerHTML += "<li><strong>Media:</strong> " + media.toFixed(2) + "</li>";
+        }
+
+        calcularMedia();
+    </script>
+</body>
+</html>

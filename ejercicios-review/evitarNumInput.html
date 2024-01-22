@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+  <form>
+    <label>No se aceptan dígitos</label>
+    <input type="text" id="letras" onkeypress="evitarNumeros(event)">
+  </form>
+
+  <script>
+    function evitarNumeros(event) {
+      const tecla = String.fromCharCode(event.which);
+      if (/[0-9]/.test(tecla)) {
+        event.preventDefault();
+      }
+    }
+  </script>
+</body>
+</html>

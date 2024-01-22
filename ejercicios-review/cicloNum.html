@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let suma = 0;
+        let cantidadValores = 0;
+        let mayorValor = Number.MIN_SAFE_INTEGER;
+        let menorValor = Number.MAX_SAFE_INTEGER;
+      
+        // Ciclo para capturar datos numéricos
+        while (true) {
+          let valor = parseFloat(prompt("Ingrese un valor numérico (ingrese 0 para detenerse):"));
+      
+          // Verificar si el usuario ha ingresado 0 para detener el programa
+          if (valor === 0) {
+            break;
+          }
+      
+          // Verificar si el valor ingresado es un número válido
+          if (!isNaN(valor)) {
+            // Actualizar la sumatoria
+            suma += valor;
+      
+            // Incrementar la cantidad de valores
+            cantidadValores++;
+      
+            // Actualizar el mayor y menor valor
+            mayorValor = Math.max(mayorValor, valor);
+            menorValor = Math.min(menorValor, valor);
+          } else {
+            alert("Por favor, ingrese un valor numérico válido.");
+          }
+        }
+      
+        // Calcular el valor promedio
+        let promedio = cantidadValores > 0 ? suma / cantidadValores : 0;
+      
+        // Mostrar resultados
+        alert("Sumatoria de los valores: " + suma.toFixed(2) +
+              "\nValor promedio: " + promedio.toFixed(2) +
+              "\nCantidad de valores digitados: " + cantidadValores +
+              "\nMayor valor: " + mayorValor.toFixed(2) +
+              "\nMenor valor: " + menorValor.toFixed(2));
+      </script>
+      
+</body>
+</html>

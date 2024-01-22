@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group By Form</title>
+  <style>
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="groupByForm">
+    <label for="inputArray">Array (JSON):</label>
+    <input type="text" id="inputArray" placeholder='Ejemplo: [{"id":"1"}, {"id":"2"}, {"id":"1"}]'>
+    
+    <label for="inputKey">Key Selector Function:</label>
+    <input type="text" id="inputKey" placeholder='Ejemplo: item => item.id'>
+
+    <button type="button" onclick="performGroupBy()">Group By</button>
+
+    <label for="result">Resultado:</label>
+    <textarea id="result" rows="5" readonly></textarea>
+  </form>
+
+  <script>
+    function groupBy(array, fn) {
+      const groupedArray = {};
+
+      array.forEach((item) => {
+        const key = fn(item);
+        if (!groupedArray[key]) {
+          groupedArray[key] = [];
+        }
+        groupedArray[key].push(item);
+      });
+
+      return groupedArray;
+    }
+
+    function performGroupBy() {
+      const inputArray = document.getElementById("inputArray").value.trim();
+      const inputKey = document.getElementById("inputKey").value.trim();
+
+      try {
+        const array = JSON.parse(inputArray);
+        const keySelector = new Function("item", `return ${inputKey};`);
+
+        const result = groupBy(array, keySelector);
+        document.getElementById("result").value = JSON.stringify(result, null, 2);
+      } catch (error) {
+        alert("Error al analizar la entrada JSON o la función del selector de clave.");
+      }
+    }
+
+    // funciona de la siguiente manera
+    //Array: [{ "id": "1" }, { "id": "2" }, { "id": "1" }]
+    // Key Selector Function: item => item.id
+
+    //Array: [[1, 2, 3], [1, 3, 5], [1, 5, 9]]
+// Key Selector Function: list => String(list[0])   
+
+//Array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// Key Selector Function: n => String(n > 5)
+  </script>
+
+</body>
+</html>

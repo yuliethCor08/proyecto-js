@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos con Transición</title>
+    <style>
+        .oculto {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .visible {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="oculto" id="ficha1">
+        Hola, soy el bloque 1
+    </div>
+    <div class="oculto" id="ficha2">
+        Hola, soy el bloque 2
+    </div>
+    <div class="oculto" id="ficha3">
+        Hola, soy el bloque 3
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("keydown", function(event) {
+                if (event.key >= "1" && event.key <= "3") {
+                    mostrarBloque(event.key);
+                }
+            });
+
+            function mostrarBloque(bloque) {
+                for (let i = 1; i <= 3; i++) {
+                    const div = document.getElementById("ficha" + i);
+                    if (i == bloque) {
+                        div.classList.add("visible");
+                        div.classList.remove("oculto");
+                    } else {
+                        div.classList.add("oculto");
+                        div.classList.remove("visible");
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
