@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container sign-up">
+            <form id="createAcc" action="">
+                <h1>Consultar información del cliente </h1>
+                
+                <input type="number" placeholder="Número de registro cliente" name="usuarioId" id="usuarioId">
+                <input type="button" value="Buscar" id="btnBuscar">
+                
+            </form>
+        </div>
+        <div class="containerCard"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const infoContainer = document.querySelector(".containerCard");
+            
+            // Función para mostrar los datos en las tarjetas
+            function mostrarDatos(datos) {
+            infoContainer.innerHTML = "";
+            
+            
+                datos.forEach(dato => {
+                    const card = document.createElement("div");
+                    card.className = "card";
+            
+                    const cover = document.createElement("div");
+                    cover.className = "cover";
+                    const imgBack = document.createElement("div");
+            
+                    const description = document.createElement("div");
+                    description.className = "description";
+            
+                    const h2 = document.createElement("h2");
+                    h2.textContent = dato.usuarioId;
+            
+                    const p = document.createElement("p");
+                    p.textContent = `Compras: ${dato.compras}`;
+            
+            
+                    description.appendChild(h2);
+                    description.appendChild(p);
+                    // description.appendChild(viewButton);
+            
+                    card.appendChild(cover);
+                    card.appendChild(description);
+            
+                    infoContainer.appendChild(card);
+                });
+            }
+
+            //..............
+
+            function buscarDatoPorNum(datos, busqueda) {
+                const resultados = datos.filter((dato) =>
+                dato.usuarioId.toLowerCase().includes(busqueda.toLowerCase())
+                );
+                mostrarDatos(resultados);
+            }
+            
+            // 
+            const btnBuscar = document.getElementById("btnBuscar");
+            btnBuscar.addEventListener("click", () => {
+                const inputBusqueda = document.getElementById("usuarioId");
+                const busqueda = inputBusqueda.value.trim();
+            
+                if (busqueda !== "") {
+                
+                const urlDatos = "http://localhost:4001/registros";
+                // const urlDatos = "../db/db.json"
+                fetch(urlDatos)
+                    .then((response) => response.json())
+                    .then((data) => buscarDatoPorNum(data, busqueda))
+                    .catch((error) =>
+                    console.error("Error al obtener los datos:", error)
+                    );
+                } else {
+                console.error("Ingresa un numero de usuario para buscar.");
+                }
+            });
+            
+            // ...
+            
+        //............
+            
+            const urlRegistros = "http://localhost:4001/registros";
+            // const urlRegistros = "db.json";
+            fetch(urlRegistros)
+            .then((response) => response.json())
+            .then((data) => mostrarDatos(data))
+            .catch((error) => console.error("Error al obtener los datos:", error));
+        });
+    </script>
+</body>
+</html>
